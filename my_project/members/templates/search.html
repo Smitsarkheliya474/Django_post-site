@@ -1,0 +1,51 @@
+{%load static%}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BlogSite Home-Page</title>
+    <!--
+C l a s s i c   T e m p l a t e
+http://www.templatemo.com/tm-488-classic
+-->
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Bootstrap style -->
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+    <!-- Templatemo style -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+          <![endif]-->
+</head>
+
+<h1 class="tm-margin-b-20 tm-gold-text">Search Results</h1><br></br>
+<ul>
+    {% for item in results %}
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">                  
+            <div class="tm-content-box">
+                <img src="{% static 'img/site-1.jpg' %}" alt="Image" class="tm-margin-b-20 img-fluid">
+                <h4 class="tm-margin-b-20 tm-gold-text"># Title :- {{item.title}}</h4>
+                <p class="tm-margin-b-20">Description :- {{item.description}}</p>
+                <p class="tm-margin-b-20">Author :- {{item.author}}</p> 
+                <p class="tm-margin-b-20">Date/Time :- {{item.datetime}}</p>
+            </div>
+       
+        </div>
+    {% empty %}
+        <li>No results found.</li>
+    {% endfor %}
+</ul>
+ <!-- load JS files -->
+ <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+ <!-- jQuery (https://jquery.com/download/) -->
+ <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+ <!-- Tether for Bootstrap, http://stackoverflow.com/questions/34567939/how-to-fix-the-error-error-bootstrap-tooltips-require-tether-http-github-h -->
+ <script src="{% static 'js/bootstrap.min.js' %}"></script>
+ <!-- Bootstrap (http://v4-alpha.getbootstrap.com/) -->

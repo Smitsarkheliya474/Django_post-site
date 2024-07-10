@@ -1,0 +1,96 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bolg SIte Data Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+</head>
+
+<body>
+
+    <div class="tm-header">
+        <div class="container-fluid">
+            <div class="tm-header-inner">
+                <a href="#" class="navbar-brand tm-site-name">BlogSite</a>
+
+                <!-- navbar -->
+                <nav class="navbar tm-main-nav">
+
+                    <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#tmNavbar">
+                            &#9776;
+                        </button>
+
+                    <div class="collapse navbar-toggleable-sm" id="tmNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="newpost/" class="nav-link">N e w P o s t</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">S h o w A l l</a>
+                            </li>
+                            <li class="nav-item">
+                                <form action="{%url 'search'%}" method=="GET">
+                                    <input type="text" name='q' placeholder="search......">
+                                    <button class="tm-btn" type="submit">Search</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+
+            </div>
+        </div>
+    </div>
+
+    <!--div class="tm-about-img-container">   
+        <img src="{% static 'tm-about-img.jpg' %}" alt="Image" class="hidden-lg-up img-fluid">
+    </div-->
+    <section class="tm-section">
+        <div class="container-fluid">
+            
+                <div class="latest-item">
+                    <div>
+                        <h3 class="tm-margin-b-20 tm-gold-text">Latest Post Enter</h3>
+                        <div class="tm-about-img-container">   
+                            <img src="{% static 'img/tm-contact-img.jpg' %}" alt="Image" class="hidden-lg-up img-fluid">
+                        </div>
+                        <h4 class="tm-margin-b-20 tm-gold-text"># Title :- {{ latest_item.title }}</h4>
+                        <p class="tm-margin-b-20">Description :- {{ latest_item.description }}</p> 
+                        <p class="tm-margin-b-20">Author :- {{ latest_item.author }}</p>
+                        <p class="tm-margin-b-20">DateTime :- {{ latest_item.datetime }}</p>
+                    </div>
+                </div><br></br>
+                <div class="other-items">
+                    <div class="row">
+                        {%for i in other_items%}
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">                  
+                            <div class="tm-content-box">
+                                <img src="{% static 'img/site-1.jpg' %}" alt="Image" class="tm-margin-b-20 img-fluid">
+                                <h4 class="tm-margin-b-20 tm-gold-text"># Title :- {{i.title}}</h4>
+                                <p class="tm-margin-b-20">Description :- {{i.description}}</p>
+                                <p class="tm-margin-b-20">Author :- {{i.author}}</p> 
+                                <p class="tm-margin-b-20">Date/Time :- {{i.datetime}}</p>
+                            </div>
+                        </div>
+                         {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- load JS files -->
+    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+    <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>
